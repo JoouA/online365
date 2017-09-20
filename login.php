@@ -21,7 +21,7 @@
         <tr>
             <td height="40px" colspan="2" align="center" valign="middle" class="l_td">
                 <input type="submit" name="login" id="login" value="登录" onclick="return chk_log();"/>
-                <input type="button" name="reg" id="reg" value="注册" onclick="javacript:Wopen=open('operation.php?action=reg','ÓÃ»§×¢²á','height=600,width=665,scrollbars=no');" />
+                <input type="button" name="reg" id="reg" value="注册" onclick="javacript:Wopen=open('operation.php?action=reg','用户注册','height=600,width=665,scrollbars=no');" />
             </td>
         </tr>
         <tr>
