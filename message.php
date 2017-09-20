@@ -10,23 +10,23 @@
         </td>
     </tr>
     <tr>
-        <td width="100px" align="right" valign="middle" class="l_td">用户名:</td>
-        <td align="left" valign="middle" class="l_td"><?php echo $_SESSION['name']; ?></td>
+        <td align="right" valign="middle" class="l_td">用户名:</td>
+        <td align="left" valign="middle" class="l_td"><strong><?php echo $_SESSION['name']; ?></strong></td>
     </tr>
     <tr>
         <td width="100px" align="right" valign="middle" class="l_td">等级:</td>
-        <td align="left" valign="middle" class="l_td"><?php echo $_SESSION['grade']; ?></td>
+        <td align="left" valign="middle" class="l_td"><strong><?php echo $_SESSION['grade']; ?></strong></td>
     </tr>
     <tr>
         <td width="100px" align="right" valign="middle" class="l_td">上传数量:</td>
-        <td align="left" valign="middle" class="l_td"><?php echo $_SESSION['counts']; ?></td>
+        <td align="left" valign="middle" class="l_td"><strong><?php echo $_SESSION['counts']; ?></strong></td>
     </tr>
-    <form name="form1" method="post" action="">
+    <form name="form1" method="post" action="logout.php">
         <tr>
             <td colspan="2" align="center" valign="middle" class="l_td">
                 <input name="Submit" type="button" id="mod_vip" value="修改信息"
                        onClick="javascript:Wopen=open('operation.php?action=mod_vip','','height=500,width=665,scrollbars=no');">
-                <input type="button" name="logout" id="logout" value="注销" onclick="return l_chk();" class="submit" />
+                <input type="submit" name="logout" id="logout" value="注销" class="submit" />
             </td>
         </tr>
         <tr>

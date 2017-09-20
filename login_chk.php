@@ -18,6 +18,7 @@
 
     if (!$u_res->EOF){
         if ($u_res->fields['whether'] == 0){
+            echo "<meta charset='utf-8' content='text/html'>";
             echo "<script type='text/javascript'>alert('该账号被冻结！');history.go(-1);</script>";
             exit();
         }else{
@@ -26,15 +27,16 @@
                  $grade = array();
                  $grade['grade'] = '高级会员';
 
-                 $updateSql = $conn->getupadteSql($u_res,$grade);
-
+                 $updateSql = "update tb_account set grade='". $grade['grade']."'";
                  $conn->execute($updateSql);
+                 $u_res = $conn->execute($sql);
             }
 
             $_SESSION['name'] = $u_res->fields['name'];
             $_SESSION['id'] = $u_res->fields['id'];
             $_SESSION['grade'] = $u_res->fields['grade'];
             $_SESSION['counts'] = $u_res->fields['counts'];
+            echo "<meta charset='utf-8' content='text/html'>";
             echo "<script type='text/javascript'>alert('登陆成功！');window.location.href='index.php'; </script>";
         }
     }

@@ -42,7 +42,7 @@
                                         <a href="#" onclick="javascript:Wopen=open('operation.php?action=see&id=<?php echo 12; ?>','','height=700,width=665,scrollbars=no');">
                                             <img src="images/online_icon.jpg" width="21" height="20" border="0" alt="在线观看" />
                                         </a>
-                                    <?php }if(@$_SESSION['name']!="" && $_SESSION['grades']=="高级会员") { ?>
+                                    <?php }if(@$_SESSION['name']!="" && $_SESSION['grade']=="高级会员") { ?>
                                         <a href="download.php?id=<?php echo 1; ?>&action=audio">
                                             <img src="images/down.jpg" width="20" height="18" border=0 alt="下载" />
                                         </a><?php  } ?>&nbsp;

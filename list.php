@@ -10,7 +10,7 @@ include "conn/conn.php";
 </head>
 <body>
 <center>
-    <?php include "top.php"; //banne ?>
+    <?php include "top.php"; //banner ?>
 
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
