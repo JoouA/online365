@@ -1,8 +1,12 @@
- <meta charset='utf-8' content='text/html'>
- <script type='text/javascript'>
-     if(confirm('确当退出登陆吗？')==true){
-         <?php  session_start(); session_destroy();?>
-         location='index.php';
-     }
- </script>
+<?php
+    session_start();
+    if (!empty($_SESSION['name'])){
+        session_destroy();
+        header('location: index.php');
+    }else{
+        echo "<meta charset='UTF-8' content='text/html'>";
+        echo "<script type='text/javascript'>alert('非法操作');window.location.href='index.php';</script>";
+    }
+?>
+
 

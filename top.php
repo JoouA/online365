@@ -41,7 +41,7 @@
 <!--                    onmouseover="this.style.backgroundImage='url(images/8.jpg)'" onmouseout="this.style.backgroundImage=''-->
 
                     <td width="126px" align="center" valign="middle" ">
-                        <a href="logout.php" onclick="return l_chk();">
+                        <a href="#" <?php if (@!empty($_SESSION['name'])){ echo "onclick=\"return logout();\""; }?>>
                             <img src="images/8.jpg" alt="8" style="width: 126px">
                         </a>
                     </td>

@@ -48,7 +48,7 @@
                                 <input name="sex" id="sex" type="radio" value="男" checked />男
                                 <input name="sex" id="sex" type="radio" value="女"/>女
                             <?php }else{?>
-                                <input name="sex" id="sex" type="radio" value="男" />
+                                <input name="sex" id="sex" type="radio" value="男" />男
                                 <input name="sex" id="sex" type="radio" value="女" checked />女
                             <?php } ?>
                         </td>
@@ -102,7 +102,7 @@
                     <tr>
                         <td height="40px" colspan="2" align="center" valign="middle" class="bottom_td">
                             <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
-                            <input name="regi"  type="submit" value="保存" onclick="return reg_chk();" />
+                            <input name="regi"  type="submit" value="保存" onclick="return modify_check();" />
                         </td>
                     </tr>
                 </form>

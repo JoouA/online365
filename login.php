@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td height="25px" colspan="2" align="right" valign="top" class="l_td">
-                <a href="#" id="dw" class="b" onclick="javascript:Wopen=open('operation.php?action=found','found_pwd','width=665,height=450,scrollbars=no')">[忘记密码]</a>
+                <a href="#" id="dw" class="b" onclick="javascript:Wopen=open('operation.php?action=found_pwd','','width=665,height=450,scrollbars=no')">[忘记密码]</a>
             </td>
         </tr>
         <tr>

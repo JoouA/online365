@@ -58,10 +58,42 @@ function reg_chk(){
     }
 }
 
-function l_chk(){
-    if(confirm("确定注销登录吗？")){
-        window.location="logout.php";
-    }
-    else
+function modify_check(){
+    if(this.reg.name.value == ""){
+        alert("用户名不能为空!");
+        this.reg.name.focus();
         return false;
+    }
+    if(this.reg.password.value == ""){
+        alert("密码不能为空!");
+        this.reg.password.focus();
+        return false;
+    }
+    if(this.reg.password.value.length < 3){
+        alert("密码长度不能少于3位！");
+        this.reg.password.focus();
+        return false;
+    }
+    if(this.reg.password.value != this.reg.t_password.value){
+        alert("两次输入的密码不一致");
+        this.reg.password.focus();
+        return false;
+    }
+    if(this.reg.email.value != ""){
+        var mailObj = this.reg.email;
+        var email_ch= /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        if(! email_ch.test(mailObj.value)){
+            alert("邮箱格式不正确");
+            mailObj.focus();
+            return false;
+        }
+    }
+}
+
+function logout () {
+     if (confirm('确定退出登录吗？') === true){
+         window.location.href='logout.php';
+     }else{
+         return false;
+     }
 }

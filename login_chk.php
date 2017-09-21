@@ -39,6 +39,9 @@
             echo "<meta charset='utf-8' content='text/html'>";
             echo "<script type='text/javascript'>alert('登陆成功！');window.location.href='index.php'; </script>";
         }
+    }else{
+        echo "<meta charset='utf-8' content='text/html'>";
+        echo "<script type='text/javascript'>alert('登录失败！');window.history.go(-1);</script>";
     }
 
 ?>

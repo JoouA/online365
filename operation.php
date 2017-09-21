@@ -44,7 +44,7 @@
             case 'trans':
                 include_once "trans.php";
                 break;
-            case 'found':
+            case 'found_pwd':
                 include_once "found_pwd.php";
                 break;
             case 'search':
