@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <center>
+    <div align="center">
         <?php include_once "top.php";  //banner ?>
         <table border="0" cellpadding="0" cellspacing="0">
             <tr>
@@ -22,6 +22,6 @@
                 </td>
             </tr>
         </table>
-    </center>
+    </div>
 </body>
 </html>

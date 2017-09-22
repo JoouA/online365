@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="css/reg.css">
 </head>
 <body>
-    <center>
+    <div align="center">
         <table>
             <tr>
                 <td width="665px" height="164px" style="background-image: url(images/ball.jpg);" >&nbsp;</td>
             </tr>
         </table>
-    </center>
+    </div>
     <?php
         switch ($action) {
             case 'reg':     //register
@@ -51,9 +51,9 @@
                 include_once "search.php";
                 break;
             case 'see':
+                include_once "see.php";
                 ?>
-                <iframe src="see.php?id=<? $_GET['id'] ?>" width="665px" height="530px" scrolling="no" frameborder="0"
-                        align="middle"></iframe>
+<!--                <iframe src="see.php?id=--><?// $_GET['id'] ?><!--" width="665px" height="530px" scrolling="no" frameborder="0" align="middle"></iframe>-->
                 <?php
                 break;
             case 'listen':
