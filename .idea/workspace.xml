@@ -19,41 +19,7 @@
     <favorites_list name="onlinev2" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="found_pwd.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/found_pwd.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5714286">
-              <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-              <folding>
-                <marker date="1506005733982" expanded="true" signature="1678:1727" placeholder="update tb_ac... " />
-                <marker date="1506005733982" expanded="true" signature="2323:2372" placeholder="select * fro... tb_account" />
-                <marker date="1506005733982" expanded="true" signature="2323:2399" placeholder="select * fro... tb_account" />
-                <marker date="1506005733982" expanded="true" signature="2323:2422" placeholder="select * fro... tb_account" />
-                <marker date="1506005733982" expanded="true" signature="2534:2967" placeholder="..." />
-                <marker date="1506005733982" expanded="true" signature="2611:2967" placeholder="..." />
-                <marker date="1506005733982" expanded="true" signature="2632:2967" placeholder="..." />
-                <marker date="1506005733982" expanded="true" signature="2830:2967" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login_chk.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login_chk.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.275862">
-              <caret line="15" column="88" selection-start-line="15" selection-start-column="88" selection-end-line="15" selection-end-column="88" />
-              <folding>
-                <marker date="1506003729070" expanded="true" signature="445:540" placeholder="select * fro... tb_account" />
-                <marker date="1506003729070" expanded="true" signature="876:898" placeholder="select * fro... tb_grade" />
-                <marker date="1506003729070" expanded="true" signature="1082:1132" placeholder="update tb_ac... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -151,16 +117,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="online365" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="online365" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -234,10 +190,10 @@
     <option name="totallyTimeSpent" value="54007000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13113007" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13113007" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -605,7 +561,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login_chk.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.275862">
+        <state vertical-scroll-proportion="0.14171429">
           <caret line="15" column="88" selection-start-line="15" selection-start-column="88" selection-end-line="15" selection-end-column="88" />
           <folding>
             <marker date="1506003729070" expanded="true" signature="445:540" placeholder="select * fro... tb_account" />
