@@ -29,14 +29,10 @@
                 include_once "mod_vip.php";
                 break;
             case 'intro':   //video intro
-                ?>
-                <iframe src="intro.php?id=<? $_GET['id'] ?>" width="665px" height="700px" scrolling="no"></iframe>
-                <?php
+                include_once "intro.php";
                 break;
             case 'v_intro':     // vocie intro
-                ?>
-                <iframe src="v_intro.php?id=<? $_GET['id'] ?>" width="665px" height="700px" scrolling="no"></iframe>
-                <?php
+                 include_once "v_intro.php";
                 break;
             case 'call';
                 include_once "call.php";
@@ -57,10 +53,7 @@
                 <?php
                 break;
             case 'listen':
-                ?>
-                <iframe src="listen.php?id=<? $_GET['id'] ?>" width="665px" height="530px" scrolling="no"
-                        frameborder="0" align="middle"></iframe>
-                <?php
+                include_once "listen.php";
                 break;
             case 'give':
                 ?>
