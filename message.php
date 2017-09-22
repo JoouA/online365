@@ -4,7 +4,7 @@
     </tr>
     <tr>
         <td colspan="2" align="center" class="l_td">&nbsp;
-            <a href="#" style="color:#000000 " onClick="javascript:Wopen=open('operation.php?action=s_music','µã¸èÏµÍ³','height=500,width=665,scrollbars=no');" class="b">
+            <a href="#" style="color:#000000 " onClick="javascript:Wopen=open('operation.php?action=s_music','','height=500,width=665,scrollbars=no');" class="b">
                 用户信息
             </a>
         </td>

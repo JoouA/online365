@@ -2,7 +2,7 @@
     <tr>
         <td align="center" valign="top">
             <?php
-                if(@isset($_SESSION['id'])&& isset($_SESSION['name'])){
+                if(@isset($_SESSION['id']) && isset($_SESSION['name'])){
                     include 'message.php';
                 }else{
                     include 'login.php';
