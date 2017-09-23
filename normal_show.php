@@ -23,7 +23,7 @@
                 <?php
                 if(isset($_SESSION['name'])){
                     ?>
-                    <a href="#" onclick="javascript:Wopen=open('operation.php?action=<?php echo (($_POST['m_type'] == "audio")?"see":"listen");?>&id=<?php echo $l_rst->fields[5]; ?>','','height=700,width=665,scrollbars=yes');">
+                    <a href="#" onclick="javascript:Wopen=open('operation.php?action=<?php echo (($_POST['m_type'] == "audio")?"see":"listen");?>&id=<?php echo $l_rst->fields['id']; ?>','','height=700,width=665,scrollbars=yes');">
                         <img src="images/online_icon.jpg" height="20" width="20" border="0"/></a>
                     <?php
 

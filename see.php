@@ -40,9 +40,13 @@
 <div class="container">
     <div align="center">
         <?php
+
+            include_once "conn/conn.php";
             $id = $_GET['id'];
-            $path = 'upfiles/audio/'.$id;
-            echo "<iframe width='425' height='349' src='$path' frameborder='0' allowfullscreen></iframe>";
+            $videoSql = 'select address from tb_audio WHERE id='.$id;
+            $data = $conn->execute($videoSql);
+            $address =  $data->fields['address'];
+            echo "<iframe width='425' height='349' src='$address' frameborder='0' allowfullscreen></iframe>";
         ?>
     </div>
 </div>

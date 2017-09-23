@@ -11,7 +11,6 @@ include "conn/conn.php";
 <body>
 <div align="center">
     <?php include "top.php"; //banner ?>
-
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td width="886px" height="32px" align="center" valign="middle" background="images/l_list.jpg">
@@ -27,6 +26,8 @@ include "conn/conn.php";
                     $href = $_GET['action'];
                     echo "<a href='?action=$href'>全部</a>";
                     echo "&nbsp;&nbsp;&nbsp;";
+                    echo "<a href='?action=$href&style=new'>最新</a>";
+                    echo "&nbsp;&nbsp;&nbsp;";
                     $s_rst = $conn->execute($s_sql);
                     while(!$s_rst->EOF){
                         echo "<a href='?action=$href&style=".urlencode($s_rst->fields[1])."'>".$s_rst->fields[1]."</a>";
@@ -36,19 +37,13 @@ include "conn/conn.php";
                 }
                 ?>
             </td>
-
         </tr>
-
     </table>
-
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td width="265px" align="center" valign="top">
-
                 <?php include "left.php";	//登录、搜索框?>
-
             </td>
-
             <td width="605px" align="center" valign="top">
                 <!-- 列表-->
                 <?php
@@ -100,17 +95,17 @@ include "conn/conn.php";
                         <tr onmouseover="this.style.backgroundColor='#deebef'" onmouseout="this.style.backgroundColor=''">
                             <td height="25px" align="right" valign="middle" >
                                 <a href="#action=<?php echo $_GET['action']; ?>&style=<?php echo urlencode($l_rst->fields[1]); ?>" >
-                                    【<?php echo $l_rst->fields[1]; ?>】</a>
+                                    【<?php echo $l_rst->fields['style']; ?>】</a>
                             </td>
 
-                            <td align="center" valign="middle"><?php echo $l_rst->fields[2]; ?></td>
+                            <td align="center" valign="middle"><?php echo $l_rst->fields['name']; ?></td>
 
-                            <td align="center" valign="middle"><?php echo $l_rst->fields[3]; ?></td>
+                            <td align="center" valign="middle"><?php echo $l_rst->fields['actor']; ?></td>
 
                             <td align="center" valign="middle">
                                 <?php
                                 if(isset($_SESSION['name'])){?>
-                                    <a href="#" onclick="javascript:Wopen=open('operation.php?action=<?php echo (($_GET[action] == "audio")?"see":"listen");?>&id=<?php echo $l_rst->fields[5]; ?>','','height=700,width=665,scrollbars=no');">
+                                    <a href="#" onclick="javascript:Wopen=open('operation.php?action=<?php echo (($_GET['action'] == "audio")?"see":"listen");?>&id=<?php echo $l_rst->fields[5]; ?>','','height=700,width=665,scrollbars=no');">
                                         <img src="images/online_icon.jpg" width="21" height="20" border="0" alt="在线播放"></a>
                                     <?php
                                 }
@@ -128,7 +123,7 @@ include "conn/conn.php";
                                         <?php
 
                                     }
-                                    if($_SESSION['grades'] == "高级会员"){
+                                    if($_SESSION['grade'] == "高级会员"){
 
                                         if($_GET['action'] == "audio"){
 
@@ -144,44 +139,27 @@ include "conn/conn.php";
                                             <a href="download.php?id=<?php echo $l_rst->fields[5] ?>&action=video">
                                                 <img src=images/down.jpg width=20 height=18 border=0 alt=下载/>
                                             </a>
-
                                             <?php
-
                                         }
-
                                     }
-
                                 }
                                 ?>
                             </td>
-
                             <td align="center" valign="middle">
                                 <a href="#" onclick="javascript:Wopen=open('operation.php?action=<?php echo (($_GET['action'] == "audio")?"intro":"v_intro");?>&id=<?php echo $l_rst->fields[0]; ?>','','height=700,width=665,scrollbars=no');">
                                     <img src="images/show_icon.jpg" width="20" height="20" border="0" alt="介绍">
                                 </a>
                             </td>
                         </tr>
-
                         <?php
                         $l_rst->movenext();
-
                     }
                     ?>
-
                 </table>
-
                 <!------------------------------>
-
             </td>
-
         </tr>
-
     </table>
-
 </div>
 </body>
 </html>
-
-
-
-

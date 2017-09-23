@@ -6,7 +6,7 @@
         <td valign="top">
             <table width="530" border="0" align="center" cellpadding="0" cellspacing="0">
                 <?php
-                if(@$_SESSION['seltype']=="Audio"){
+                if(@$_SESSION['seltype']=="audio"){
                     ?>
                     <tr>
                         <td width="34" height="20"><div align="center"></div></td>
@@ -25,7 +25,7 @@
                         <td width="75"><div align="center">类别</div></td>
                         <td width="129"><div align="center">音乐数据名称</div></td>
                         <td width="161"><div align="center">歌手姓名 </div></td>
-                        <td width="62"><div align="center">在线观看</div></td>
+                        <td width="62"><div align="center">在线视听</div></td>
                         <td width="38"><div align="center">下载</div></td>
                         <td width="31"><div align="center">详细</div></td>
                     </tr>
@@ -44,7 +44,7 @@
                                 <?php
                                 if(@isset($_SESSION['name'])){
                                     ?>
-                                    <a href="#" onclick="javascript:Wopen=open('operation.php?action=<?php echo (($_GET['type'] == "audio")?"see":"listen");?>&id=<?php echo $h_rst->fields[5]; ?>','','height=700,width=665,scrollbars=no');">
+                                    <a href="#" onclick="javascript:Wopen=open('operation.php?action=<?php echo (($_GET['type'] == "audio")?"see":"listen");?>&id=<?php echo $h_rst->fields['id']; ?>','','height=700,width=665,scrollbars=no');">
                                         <img src="images/online_icon.jpg" width="21" height="20" border="0"></a>
                                     <?php
                                 }
