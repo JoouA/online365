@@ -63,6 +63,9 @@ include "conn/conn.php";
                     if($style == ""){
                         $l_sqlstr = "select id,style,name,actor,remark,address from tb_video order by id";
                         $l_name = "音乐特区";
+                    }elseif($style='new'){
+                        $l_sqlstr = "select id,style,name,actor,remark,address from tb_video order by id";
+                        $l_name = "最新歌曲";
                     }else{
                         $l_sqlstr = "select id,style,name,actor,remark,address from tb_video where style="."'".$_GET['style']."'"." order by id";
                         $l_name = $style;
@@ -105,7 +108,7 @@ include "conn/conn.php";
                             <td align="center" valign="middle">
                                 <?php
                                 if(isset($_SESSION['name'])){?>
-                                    <a href="#" onclick="javascript:Wopen=open('operation.php?action=<?php echo (($_GET['action'] == "audio")?"see":"listen");?>&id=<?php echo $l_rst->fields[5]; ?>','','height=700,width=665,scrollbars=no');">
+                                    <a href="#" onclick="javascript:Wopen=open('operation.php?action=<?php echo (($_GET['action'] == "audio")?"see":"listen");?>&id=<?php echo $l_rst->fields['id']; ?>','','height=700,width=665,scrollbars=no');">
                                         <img src="images/online_icon.jpg" width="21" height="20" border="0" alt="在线播放"></a>
                                     <?php
                                 }

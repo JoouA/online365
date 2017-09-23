@@ -40,7 +40,6 @@
 <div class="container">
     <div align="center">
         <?php
-
             include_once "conn/conn.php";
             $id = $_GET['id'];
             $videoSql = 'select address from tb_audio WHERE id='.$id;

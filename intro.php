@@ -82,7 +82,7 @@ include "conn/conn.php";
                                                 if(isset($_SESSION['name'])){
                                                     ?>
                                                     <input name="Submit" type="submit" value="播放"
-                                                           onclick="javascript:Wopen=open('operation.php?action=see&id=<?php echo $rst->fields[16]; ?>','','height=700,width=665,scrollbars=no');">
+                                                           onclick="javascript:Wopen=open('operation.php?action=see&id=<?php echo $rst->fields['id']; ?>','','height=700,width=665,scrollbars=no');">
                                                     <?php
                                                 }
                                                 if(isset($_SESSION['name'])){
