@@ -79,7 +79,7 @@ include "conn/conn.php";
                                                     <?php
                                                 }if(isset($_SESSION['name'])){
                                                     ?>
-                                                    <input name="Submit" type="button" <?php  if ($_SESSION['grade']=="普通会员") echo "hidden"; ?> value="下载"  onClick="javascript:Wopen=location='download.php?action=video&id=<?php echo $rst->fields[16]; ?>';">
+                                                    <input name="Submit" type="button" <?php  if ($_SESSION['grade']=="普通会员") echo "hidden"; ?> value="下载"  onClick="javascript:Wopen=location='download.php?action=video&id=<?php echo $rst->fields['id']; ?>';">
                                                     <?php
                                                 }
                                                 ?>

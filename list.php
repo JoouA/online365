@@ -120,7 +120,7 @@ include "conn/conn.php";
                                 if(isset($_SESSION['name'])){
                                     if($_GET['action'] == "dot"){
                                         ?>
-                                        <a href='#' onclick=javascript:Wopen=open('operation.php?action=give&id=<?php echo $l_rst->fields[0]; ?>','','height=700,width=665,scrollbars=no')>
+                                        <a href='#' onclick=javascript:Wopen=open('operation.php?action=give&id=<?php echo $l_rst->fields['id']; ?>','','height=700,width=665,scrollbars=no')>
                                             <img src=images/tv_icon.jpg width="15px" height="13px" border="0" alt="点播" />
                                         </a>
                                         <?php
@@ -131,15 +131,14 @@ include "conn/conn.php";
                                         if($_GET['action'] == "audio"){
 
                                             ?>
-
-                                            <a href="download.php?id=<?php echo $l_rst->fields[5] ?>&action=audio">
+                                            <a href="download.php?id=<?php echo $l_rst->fields['id'] ?>&action=audio">
                                                 <img src=images/down.jpg width=20 height=18 border=0 alt=下载/>
                                             </a>
                                             <?php
 
                                         }elseif($_GET['action'] == "video"){
                                             ?>
-                                            <a href="download.php?id=<?php echo $l_rst->fields[5] ?>&action=video">
+                                            <a href="download.php?id=<?php echo $l_rst->fields['id'] ?>&action=video">
                                                 <img src=images/down.jpg width=20 height=18 border=0 alt=下载/>
                                             </a>
                                             <?php

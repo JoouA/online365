@@ -56,10 +56,7 @@
                 include_once "listen.php";
                 break;
             case 'give':
-                ?>
-                <iframe src="give.php?id=<? $_GET['id'] ?>" width="665px" height="530px" scrolling="no" frameborder="0"
-                        align="middle"></iframe>
-                <?php
+                include_once "give.php";
                 break;
             case 'dotlisten':
                 ?>
