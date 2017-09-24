@@ -65,7 +65,6 @@
         element: document.getElementById('player3'),
         narrow: false,
         autoplay: false,
-        showlrc: 3,
         mutex: true,
         theme: '#615754',
         mode: 'circulation',
@@ -74,7 +73,6 @@
             author: '<?php echo $data->fields['actor']; ?>',
             url: '<?php echo $data->fields['address']; ?>',
             pic: '<?php echo $data->fields['picture']; ?>',
-            lrc: 'secret base~君がくれたもの~.lrc',
         }
     });
 </script>
