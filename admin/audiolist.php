@@ -54,7 +54,7 @@ include "conn/conn.php";
                                                         $l_rst = $conn->execute($l_sqlstr);
                                                         while(!$l_rst->EOF){
                                                             ?>
-                                                            <option value="<?php echo $l_rst->fields[2]; ?>"><?php echo $l_rst->fields[2]; ?></option>
+                                                            <option value="<?php echo $l_rst->fields['name']; ?>"><?php echo $l_rst->fields['name']; ?></option>
                                                             <?php
                                                             $l_rst->MoveNext();
                                                         }

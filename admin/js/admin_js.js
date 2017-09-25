@@ -26,6 +26,14 @@ function n_chk() {
 	}
 }
 
+function del_chk(){
+	if (confirm("真的要删除这个目录，删除后无法恢复！") === true){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 
 
 

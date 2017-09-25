@@ -1,7 +1,7 @@
 <?php
 include "inc/chec.php";
 include "conn/conn.php";
-$l_sqlstr = "select * from tb_audiolist";
+$l_sqlstr = "select * from tb_audiolist ORDER by id ASC";
 $l_rst = $conn->execute($l_sqlstr);
 /*echo "<pre>";
 print_r($l_rst->fields);die();*/
