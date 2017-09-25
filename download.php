@@ -33,11 +33,12 @@ if(file_exists($path)==false)
 }
 $filename=basename($path);
 $file=fopen($path,"r");
+$ext =  strrchr($filename,'.');
 header("Content-type:text/html;charset=utf-8");
 header("Content-type:application/octet-stream");
 header("Accept-ranges:bytes");
 header("Accept-length:".filesize($path));
-header("Content-Disposition:attachment;filename=".$filename);
+header("Content-Disposition:attachment;filename=".md5($filename).$ext);
 echo fread($file,filesize($path));
 fclose($file);
 exit;

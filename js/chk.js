@@ -97,3 +97,178 @@ function logout () {
          return false;
      }
 }
+
+function trans_video_chk(){
+    var pic = document.getElementsByName('picture');
+    if (pic[0].value == ""){
+        alert('照片信息不能为空！');
+        this.list.picture.focus();
+        return false;
+    }
+
+    var media = document.getElementsByName('address');
+    if(media[0].value == ""){
+        alert('上传数据不能为空！');
+        this.list.picture.focus();
+        return false;
+    }
+
+    if (this.list.names.value == ""){
+        alert('歌曲名称不能为空！');
+        this.list.names.focus();
+        return false;
+    }
+
+    if (this.list.actor.value == ""){
+        alert('演唱者不能为空！');
+        this.list.actor.focus();
+        return false;
+    }
+
+    if (this.list.actortype.value == ""){
+        alert('演唱者类型不能为空！');
+        this.list.actortype.focus();
+        return false;
+    }
+
+    if (this.list.ci.value == ""){
+        alert('作词不能为空！');
+        this.list.ci.focus();
+        return false;
+    }
+
+    if (this.list.qu.value == ""){
+        alert('作曲不能为空！');
+        this.list.qu.focus();
+        return false;
+    }
+
+    if (this.list.publisher.value == ""){
+        alert('发行商不能为空！');
+        this.list.publisher.focus();
+        return false;
+    }
+
+    if (this.list.language.value == ""){
+        alert('语言不能为空！');
+        this.list.language.focus();
+        return false;
+    }
+
+    if (this.list.style.value == ""){
+        alert('二级分类不能为空！');
+        this.list.style.focus();
+        return false;
+    }
+
+    if (this.list.type.value == ""){
+        alert('一级分类不能为空！');
+        this.list.type.focus();
+        return false;
+    }
+    if (this.list.from.value == ""){
+        alert('发行国家不能为空！');
+        this.list.from.focus();
+        return false;
+    }
+    if (this.list.publishtime.value == ""){
+        alert('发行时间不能为空！');
+        this.list.publishtime.focus();
+        return false;
+    }
+    if (this.list.remark.value == ""){
+        alert('简要介绍不能为空！');
+        this.list.remark.focus();
+        return false;
+    }
+}
+
+function trans_audio_chk(){
+    var pic = document.getElementsByName('picture');
+    if (pic[0].value == ""){
+        alert('照片信息不能为空！');
+        this.list.picture.focus();
+        return false;
+    }
+
+    var media = document.getElementsByName('address');
+    if(media[0].value == ""){
+        alert('上传数据不能为空！');
+        this.list.picture.focus();
+        return false;
+    }
+
+    if (this.list.names.value == ""){
+        alert('电影名称不能为空！');
+        this.list.names.focus();
+        return false;
+    }
+
+    if (this.list.grade.value == ""){
+        alert('等级不能为空！');
+        this.list.grade.focus();
+        return false;
+    }
+
+    if (this.list.publisher.value == ""){
+        alert('发行商不能为空！');
+        this.list.publisher.focus();
+        return false;
+    }
+
+    if (this.list.actor.value == ""){
+        alert('主要演员不能为空！');
+        this.list.actor.focus();
+        return false;
+    }
+
+    if (this.list.director.value == ""){
+        alert('导演不能为空！');
+        this.list.director.focus();
+        return false;
+    }
+
+    if (this.list.marker.value == ""){
+        alert('制片人不能为空！');
+        this.list.marker.focus();
+        return false;
+    }
+
+    if (this.list.language.value == ""){
+        alert('语言不能为空！');
+        this.list.language.focus();
+        return false;
+    }
+
+    if (this.list.style.value == ""){
+        alert('二级分类不能为空！');
+        this.list.style.focus();
+        return false;
+    }
+
+    if (this.list.type.value == ""){
+        alert('一级分类不能为空！');
+        this.list.type.focus();
+        return false;
+    }
+    if (this.list.from.value == ""){
+        alert('发行国家不能为空！');
+        this.list.from.focus();
+        return false;
+    }
+    if (this.list.publishtime.value == ""){
+        alert('发行时间不能为空！');
+        this.list.publishtime.focus();
+        return false;
+    }
+    if (this.list.news.value == ""){
+        alert('是否新品不能为空！');
+        this.list.publishtime.focus();
+        return false;
+    }
+    if (this.list.remark.value == ""){
+        alert('简要介绍不能为空！');
+        this.list.remark.focus();
+        return false;
+    }
+}

@@ -3,6 +3,7 @@ include "conn/conn.php";
 include "inc/func.php";
 $types = htmlspecialchars(trim(@$_GET['types']))?htmlspecialchars(trim(@$_GET['types'])):'Audio';
 ?>
+<script type="text/javascript" src="js/chk.js"></script>
 <div align="center">
 <table width="558" height="110" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
@@ -64,7 +65,9 @@ $types = htmlspecialchars(trim(@$_GET['types']))?htmlspecialchars(trim(@$_GET['t
                                                                     <tr>
                                                                         <td height="30" colspan="2">
                                                                             <div align="center">
-                                                                                <input name="Submit" type="submit"  value="添加">
+                                                                                <input name="Submit" type="submit"  value="添加" <?php
+                                                                                if ($types=="Audio"){ echo "onclick=\"return trans_audio_chk();\"";}elseif ($types=="Video"){ echo "onclick=\"return trans_video_chk();\"";}  ?>
+                                                                                >
                                                                                 (*是必填项)
                                                                                 <input name="Submit2" type="button"  value="返回" onClick="javascript:top.window.close()">
                                                                             </div>
