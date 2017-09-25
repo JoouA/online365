@@ -1,143 +1,31 @@
-// JavaScript Document
+// validate login
 
-//µÇÂ¼ÑéÖ¤
-
-function l_chk(){
-
-	if(document.a_login.manager.value == ""){
-
-		alert("ÇëÊäÈëÓÃ»§Ãû");
-
+function l_chk() {
+	if (document.a_login.manager.value==""){
+		alert('è¯·è¾“å…¥ç”¨æˆ·åï¼');
 		document.a_login.manager.focus();
-
 		return false;
-
 	}
 
-	if(document.a_login.pwd.value == ""){
-
-		alert("ÇëÊäÈëÃÜÂë");
-
+	if (document.a_login.pwd == ""){
+		alert('è¯·è¾“å…¥å¯†ç ï¼');
 		document.a_login.pwd.focus();
-
 		return false;
-
 	}
-
 }
 
-//Ìí¼ÓÄ¿Â¼ÑéÖ¤
-
-function n_chk(){
-
-	if(document.list.names.value == ""){
-
-		alert("Ä¿Â¼Ãû³Æ²»ÔÊĞíÎª¿Õ");
-
+/**
+ * check add audio content
+ * @returns {boolean}
+ */
+function n_chk() {
+	if (document.list.names.value == ''){
+		alert('è¯·è¾“å…¥ç›®å½•åç§°ï¼');
 		document.list.names.focus();
-
 		return false;
-
 	}
-
 }
 
-//É¾³ıÈ·ÈÏ
 
-function del_chk(){
 
-	if(confirm("È·¶¨ÒªÉ¾³ıÑ¡ÖĞµÄÏîÄ¿Âğ£¿Ò»µ©É¾³ı½«²»ÄÜ»Ö¸´£¡"))
 
-     	return true;
-
-   	else
-
-     	return false;
-
-}
-
-//Ìí¼Ó¹ÜÀíÔ±
-
-function check(){
-
-	var names=list.names.value;
-
-	var pwd1=list.password.value;
-
-	var pwd2=list.password2.value;
-
-	var grade=list.grade.value;
-
-	var realname=list.realname.value;
-
-	if(names==""){
-
-		alert("ÓÃ»§Ãû²»ÄÜÎª¿Õ");
-
-		list.names.focus();
-
-	}
-
-	else if(pwd1==""){
-
-		alert("ÃÜÂë²»ÄÜÎª¿Õ");
-
-		list.password.focus();
-
-	}
-
-	else if(pwd1.length<3){
-
-		alert("ÃÜÂë³¤¶È²»ÄÜĞ¡ÓÚ3Î»");
-
-		list.password.focus();
-
-	}
-
-	else if(pwd2==""){
-
-		alert("ÇëÈ·ÈÏÃÜÂë");
-
-		list.password2.focus();
-
-	}
-
-	else if(pwd1!=pwd2){
-
-		alert("Á½´ÎÊäÈëµÄÃÜÂë²»Ò»ÖÂ");
-
-		list.password.focus();
-
-	}
-
-	else if(realname==""){
-
-		alert("ÇëÌîĞ´¹ÜÀíÔ±ÕæÊµĞÕÃû");
-
-		list.realname.focus();
-
-	}
-
-	else {
-
-		list.submit();
-
-	}
-
-}
-
-//Ìí¼ÓÊÓÆµÎÄ¼şÑéÖ¤
-
-function a_chk(){
-
-	if(document.list.names.value == ""){
-
-		alert("Ãû³Æ²»ÔÊĞíÎª¿Õ");
-
-		document.list.names.focus();
-
-		return false;
-
-	}
-
-}
