@@ -1,6 +1,29 @@
 <?php
 include "inc/chec.php";
 include "conn/conn.php";
+$page =  htmlspecialchars(trim($_GET['page']));
+$num_sql1 = "select  count(*) as totalPage1 from tb_audio";
+$num_sql2 = "select count(*) as totalPage2 from tb_video";
+$data1 = $conn->execute($num_sql1);
+$data2 = $conn->execute($num_sql2);
+$numberTotal = $data1->fields['totalPage1'] + $data2->fields['totalPage2'];
+$pageSize = 5;
+// get the page of the table
+$totalPage = ceil($numberTotal/$pageSize);
+if ($page <= 0){
+    $page = 1;
+}
+if ($page >= $totalPage){
+    $page = $totalPage;
+}
+$offset = ($page - 1)*$pageSize;
+$pre =  ($page == 1)? "上一页" : "<a href='main.php?action=log&page=".($page - 1)."'>上一页</a>";
+$next = ($page == $totalPage)? "下一页" : "<a href='main.php?action=log&page=".($page + 1)."'>下一页</a>";
+$str = '';
+for ($i = 1; $i <= $totalPage;$i++){
+    $str .= "&nbsp;&nbsp;&nbsp;"."<a href='main.php?action=log&page=$i'>[$i]</a>";
+}
+$str .= "&nbsp;&nbsp;&nbsp;";
 ?>
 <table width="380" height="440" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
@@ -39,7 +62,7 @@ include "conn/conn.php";
                                     $l_sqlstr="select id,name,userName,issueDate,type,address from tb_video where property='用户' and issueDate like '%".$q_date."%'";
                                     break;
                                 default:
-                                    $l_sqlstr="select id,name,userName,issueDate,type,address from tb_audio where property='用户' Union select id,name,userName,issueDate,type,address from tb_video where property='用户'";
+                                    $l_sqlstr="select id,name,userName,issueDate,type,address from tb_audio where property='用户' Union select id,name,userName,issueDate,type,address from tb_video where property='用户' limit $offset,$pageSize";
                                     break;
                             }
                             $l_rst = $conn->execute($l_sqlstr);
@@ -61,6 +84,17 @@ include "conn/conn.php";
                             }
                             ?>
                         </table>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <?php
+                        if ($totalPage>1){
+                            echo $pre.'&nbsp;'.$str.'&nbsp;'.$next;
+                        }else{
+                            echo "";
+                        }
+                        ?>
                     </td>
                 </tr>
             </table>

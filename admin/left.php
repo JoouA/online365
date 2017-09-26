@@ -115,7 +115,7 @@ include "inc/chec.php";
         </td>
         <td height="25" class="menu_td">
             <div align="left">
-                <a  <?php if($_SESSION['m_type']=="super") echo "href='main.php?action=log'";  ?>>上传日志管理</a>
+                <a  <?php if($_SESSION['m_type']=="super") echo "href='main.php?action=log&page=1'";  ?>>上传日志管理</a>
             </div>
         </td>
     </tr>

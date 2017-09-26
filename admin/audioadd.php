@@ -162,6 +162,7 @@ include "conn/conn.php";
                                                 <td height="30" colspan="2" align="center" valign="middle">
                                                     <input type="hidden" name="action" value="a">
                                                     <input name="Submit" type="submit" value="添  加" class="submit" onclick="return trans_audio_chk();">
+<!--                                                    <input name="Submit" type="submit" value="添  加" class="submit">-->
                                                     （*为必填项）
                                                     <input name="Submit2" type="button" value="返  回" class="submit" onclick="javascript:top.window.close()">
                                                 </td>
