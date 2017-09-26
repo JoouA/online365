@@ -18,7 +18,7 @@ include "inc/chec.php";
         </td>
         <td height="25" class="menu_td">
             <div align="left">
-                <a <?php if(($_SESSION['m_type']=="super") || ($_SESSION['m_type']=="视频目录管理员"))echo "href='main.php?action=audioList'"; ?>>视频目录管理</a>
+                <a <?php if(($_SESSION['m_type']=="super") || ($_SESSION['m_type']=="视频目录管理员"))echo "href='main.php?action=audioList&page=1'"; ?>>视频目录管理</a>
             </div>
         </td>
     </tr>
@@ -33,7 +33,7 @@ include "inc/chec.php";
         </td>
         <td height="25" class="menu_td">
             <div align="left">
-                <a <?php if(($_SESSION['m_type']=="super") || ($_SESSION['m_type']=="音频目录管理员")) echo "href='main.php?action=videoList'"; ?>>音频目录管理</a>
+                <a <?php if(($_SESSION['m_type']=="super") || ($_SESSION['m_type']=="音频目录管理员")) echo "href='main.php?action=videoList&page=1'"; ?>>音频目录管理</a>
             </div>
         </td>
     </tr>
@@ -49,7 +49,7 @@ include "inc/chec.php";
         </td>
         <td height="25" class="menu_td">
             <div align="left">
-                <a <?php if(($_SESSION['m_type']=="super") || ($_SESSION['m_type']=="视频数据管理员")) echo "href='main.php?action=audio'";  ?>>视频数据管理</a>
+                <a <?php if(($_SESSION['m_type']=="super") || ($_SESSION['m_type']=="视频数据管理员")) echo "href='main.php?action=audio&page=1'"; ?>>视频数据管理</a>
             </div>
         </td>
     </tr>
@@ -64,7 +64,7 @@ include "inc/chec.php";
         </td>
         <td height="25" class="menu_td">
             <div align="left">
-                <a  <?php if (($_SESSION['m_type']=="super") || ($_SESSION['m_type']=="音频数据管理员")) echo "href='main.php?action=video'";  ?>>音乐数据管理</a>
+                <a  <?php if (($_SESSION['m_type']=="super") || ($_SESSION['m_type']=="音频数据管理员")) echo "href='main.php?action=video&page=1'";  ?>>音乐数据管理</a>
             </div>
         </td>
     </tr>

@@ -1,18 +1,43 @@
 <?php
 include "inc/chec.php";
 include "conn/conn.php";
-$l_sqlstr = "select * from tb_videolist ORDER BY id ASC ";
+
+$page =  htmlspecialchars(trim($_GET['page']));
+$num_sql = "select count(*) as totalPage from tb_videolist";
+$num_rst =  $conn->execute($num_sql);
+$pageSize = 5;
+// get the page of the table
+$totalPage = ceil($num_rst->fields['totalPage']/$pageSize);
+if ($page <= 0){
+    $page = 1;
+}
+if ($page >= $totalPage){
+    $page = $totalPage;
+}
+$offset = ($page - 1)*$pageSize;
+$pre =  ($page == 1)? "上一页" : "<a href='main.php?action=videoList&page=".($page - 1)."'>上一页</a>";
+$next = ($page == $totalPage)? "下一页" : "<a href='main.php?action=videoList&page=".($page + 1)."'>下一页</a>";
+$str = '';
+for ($i = 1; $i <= $totalPage;$i++){
+    $str .= "&nbsp;&nbsp;&nbsp;"."<a href='main.php?action=videoList&page=$i'>[$i]</a>";
+}
+$str .= "&nbsp;&nbsp;&nbsp;";
+
+$l_sqlstr = "select * from tb_videolist ORDER by id ASC limit $offset,$pageSize";
 $l_rst = $conn->execute($l_sqlstr);
+
 ?>
 
 <table width="380" height="440" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
-        <td colspan="4" valign="top"><table width="380" height="60" border="0" cellpadding="0" cellspacing="0">
+        <td colspan="4" valign="top">
+            <table width="380" height="60" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td height="20" colspan="4" align="center" valign="middle">音 频 目 录 管 理</td>
                 </tr>
                 <tr>
-                    <td colspan="4"><table width="375" border="0" align="center" cellpadding="2" cellspacing="2">
+                    <td colspan="4">
+                        <table width="375" border="0" align="center" cellpadding="2" cellspacing="2">
                             <tr>
                                 <td height="10" colspan="5" align="right" valign="middle"><a href="#" onclick="javacript:Wopen=open('operation.php?action=videolist','添加目录','height=500,width=665,scrollbars=no');">目录添加</a></td>
                             </tr>
@@ -38,8 +63,19 @@ $l_rst = $conn->execute($l_sqlstr);
                                 $l_rst->MoveNext();
                             }
                             ?>
-
                         </table>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <?php
+
+                        if ($totalPage>1){
+                            echo $pre.'&nbsp;'.$str.'&nbsp;'.$next;
+                        }else{
+                            echo "";
+                        }
+                        ?>
                     </td>
                 </tr>
             </table>

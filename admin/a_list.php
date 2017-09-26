@@ -1,7 +1,30 @@
 <?php
 include "inc/chec.php";
 include "conn/conn.php";
-$l_sqlstr = "select * from tb_audiolist ORDER by id ASC";
+
+$page =  htmlspecialchars(trim($_GET['page']));
+$num_sql = "select count(*) as totalPage from tb_audiolist";
+$num_rst =  $conn->execute($num_sql);
+$pageSize = 5;
+// get the page of the table
+$totalPage = ceil($num_rst->fields['totalPage']/$pageSize);
+if ($page <= 0){
+    $page = 1;
+}
+if ($page >= $totalPage){
+    $page = $totalPage;
+}
+$offset = ($page - 1)*$pageSize;
+$pre =  ($page == 1)? "上一页" : "<a href='main.php?action=audioList&page=".($page - 1)."'>上一页</a>";
+$next = ($page == $totalPage)? "下一页" : "<a href='main.php?action=audioList&page=".($page + 1)."'>下一页</a>";
+$str = '';
+for ($i = 1; $i <= $totalPage;$i++){
+    $str .= "&nbsp;&nbsp;&nbsp;"."<a href='main.php?action=audioList&page=$i'>[$i]</a>";
+}
+$str .= "&nbsp;&nbsp;&nbsp;";
+
+
+$l_sqlstr = "select * from tb_audiolist ORDER by id ASC limit $offset,$pageSize";
 $l_rst = $conn->execute($l_sqlstr);
 /*echo "<pre>";
 print_r($l_rst->fields);die();*/
@@ -43,6 +66,17 @@ print_r($l_rst->fields);die();*/
                             }
                             ?>
                         </table>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <?php
+                        if ($totalPage>1){
+                            echo $pre.'&nbsp;'.$str.'&nbsp;'.$next;
+                        }else{
+                            echo "";
+                        }
+                        ?>
                     </td>
                 </tr>
             </table>

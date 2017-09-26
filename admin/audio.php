@@ -1,6 +1,30 @@
 <?php
 include_once "conn/conn.php";
 include_once "inc/chec.php";
+
+//分页
+$page =  htmlspecialchars(trim($_GET['page']));
+$num_sql = "select count(*) as totalPage from tb_audio";
+$num_rst =  $conn->execute($num_sql);
+$pageSize = 2;
+// get the page of the table
+$totalPage = ceil($num_rst->fields['totalPage']/$pageSize);
+if ($page <= 0){
+    $page = 1;
+}
+if ($page >= $totalPage){
+    $page = $totalPage;
+}
+$offset = ($page - 1)*$pageSize;
+$pre =  ($page == 1)? "上一页" : "<a href='main.php?action=audio&page=".($page - 1)."'>上一页</a>";
+$next = ($page == $totalPage)? "下一页" : "<a href='main.php?action=audio&page=".($page + 1)."'>下一页</a>";
+$str = '';
+for ($i = 1; $i <= $totalPage;$i++){
+    $str .= "&nbsp;&nbsp;&nbsp;"."<a href='main.php?action=audio&page=$i'>[$i]</a>";
+}
+$str .= "&nbsp;&nbsp;&nbsp;";
+
+
 ?>
 <table width="380" height="440" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
@@ -25,7 +49,7 @@ include_once "inc/chec.php";
                                 <td height="30" align="center" valign="middle">操作</td>
                             </tr>
                             <?php
-                            $sqlstr = "select * from tb_audio";
+                            $sqlstr = "select * from tb_audio limit $offset,$pageSize";
                             $rst = $conn->execute($sqlstr);
                             while(!$rst->EOF){
                                 ?>
@@ -40,6 +64,18 @@ include_once "inc/chec.php";
                                 <?php $rst->MoveNext();}
                             ?>
                         </table>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <?php
+
+                        if ($totalPage>1){
+                            echo $pre.'&nbsp;'.$str.'&nbsp;'.$next;
+                        }else{
+                            echo "";
+                        }
+                        ?>
                     </td>
                 </tr>
             </table>
