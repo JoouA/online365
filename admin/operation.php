@@ -45,24 +45,16 @@ $action = htmlspecialchars(trim($_GET['action']));
             include "addmanager.php";
             break;
         case "audio":						//视频介绍
-            ?>
-            <iframe src="intro.php?id=<?php echo $_GET['id']; ?>" width="665" height="700" scrolling="no"></iframe>
-            <?php
+            require_once "intro.php";
             break;
-        case "video":							//音频介绍
-            ?>
-            <iframe src="v_intro.php?id=<?php echo $_GET['id']; ?>" width="665" height="700" scrolling="no"></iframe>
-            <?php
+        case "video":						//音频介绍
+            require_once "v_intro.php";
             break;
         case "see":
-            ?>
-            <iframe src="see.php?id=<?php echo $_GET['id']; ?>" width="665" height="530" scrolling="no" frameborder="0" align="middle"></iframe>
-            <?php
+             include "see.php";
             break;
         case "listen":
-            ?>
-            <iframe src="listen.php?id=<?php echo $_GET['id']; ?>" width="665" height="530" scrolling="no" frameborder="0" align="middle"></iframe>
-            <?php
+            require_once "listen.php";
             break;
     }
     ?>

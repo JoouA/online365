@@ -46,20 +46,33 @@ $str .= "&nbsp;&nbsp;&nbsp;";
                                 <td height="30" align="center" valign="middle">操作</td>
                             </tr>
                             <?php
-                            $sqlstr = "select * from tb_video limit $offset,$pageSize";
+                            $sql_check = "select * from tb_video";
+                            if ($conn->execute($sql_check)->_numOfRows > 0){
+                                $sqlstr = "select * from tb_video limit $offset,$pageSize";
+                            }else{
+                                $sqlstr = $sql_check;
+                            }
                             $rst = $conn->execute($sqlstr);
                             while(!$rst->EOF){
                                 ?>
                                 <tr>
                                     <td height="18" align="center" valign="middle"><?php echo $rst->fields['id']; ?></td>
-                                    <td height="18" align="center" valign="middle"><a href="#"><?php echo $rst->fields['name']; ?></a></td>
+                                    <td height="18" align="center" valign="middle">
+                                        <a href="#" onclick="javascript:Wopen=open('operation.php?action=video&id=<?php echo  $rst->fields['id'];?>','音乐介绍','height=700,width=665,scrollbars=no');">
+                                            <?php echo $rst->fields['name']; ?>
+                                        </a>
+                                    </td>
                                     <td height="18" align="center" valign="middle"><?php echo $rst->fields['type']; ?></td>
                                     <td height="18" align="center" valign="middle"><?php echo $rst->fields['actor']; ?></td>
                                     <td height="18" align="center" valign="middle">
-                                        <a href="del_video_chk.php?id=<?php echo $rst->fields['id']; ?>" onclick="del_chk();">删除</a>
+                                        <a href="del_video_chk.php?id=<?php echo $rst->fields['id']; ?>" onclick="return video_del_check();">删除</a>
                                     </td>
                                 </tr>
-                                <?php $rst->MoveNext();}
+                                <?php
+                                if ($rst->_numOfRows > 0){
+                                    $rst->MoveNext();
+                                }
+                            }
                             ?>
                         </table>
                     </td>

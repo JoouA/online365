@@ -49,19 +49,32 @@ $str .= "&nbsp;&nbsp;&nbsp;";
                                 <td height="30" align="center" valign="middle">操作</td>
                             </tr>
                             <?php
-                            $sqlstr = "select * from tb_audio limit $offset,$pageSize";
+                            // 判断当前的表中是否有数据，没有数据就不执行分页的sql了
+                            $sqlstr_chk = "select * from tb_audio";
+                            if ($conn->execute($sqlstr_chk)->_numOfRows > 0){
+                                $sqlstr = "select * from tb_audio limit $offset,$pageSize";
+                            }else{
+                                $sqlstr = "select * from tb_audio";
+                            }
                             $rst = $conn->execute($sqlstr);
                             while(!$rst->EOF){
                                 ?>
                                 <tr>
-                                    <td height="18" align="center" valign="middle"><?php echo $rst->fields[0]; ?></td>
-                                    <td height="18" align="center" valign="middle"><a href="#"><?php echo $rst->fields[1]; ?></a></td>
-                                    <td height="18" align="center" valign="middle"><?php echo $rst->fields[11]; ?></td>
-                                    <td height="18" align="center" valign="middle"><?php echo $rst->fields[6]; ?></td>
-                                    <td height="18" align="center" valign="middle"><a href="del_audio_chk.php?id=<?php echo $rst->fields[0]; ?>" onclick="return del_chk();">删除</a></td>
+                                    <td height="18" align="center" valign="middle"><?php echo $rst->fields['id']; ?></td>
+                                    <td height="18" align="center" valign="middle">
+                                        <a href="#" onclick="javascript:Wopen=open('operation.php?action=audio&id=<?php echo $rst->fields['id'];?>','查看视频','height=700,width=665,scrollbars=no');">
+                                            <?php echo $rst->fields['name']; ?></a>
+                                    </td>
+                                    <td height="18" align="center" valign="middle"><?php echo $rst->fields['style']; ?></td>
+                                    <td height="18" align="center" valign="middle"><?php echo $rst->fields['actor']; ?></td>
+                                    <td height="18" align="center" valign="middle"><a href="del_audio_chk.php?id=<?php echo $rst->fields['id']; ?>" onclick="return audio_del_check();">删除</a></td>
                                     </form>
                                 </tr>
-                                <?php $rst->MoveNext();}
+                                <?php
+                                if ($rst->_numOfRows > 0){
+                                    $rst->MoveNext();
+                                }
+                            }
                             ?>
                         </table>
                     </td>

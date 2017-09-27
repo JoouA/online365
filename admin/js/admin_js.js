@@ -220,3 +220,19 @@ function trans_audio_chk(){
         return false;
     }
 }
+
+function audio_del_check(){
+    if (confirm('确定要删除视频，视频删除后不能恢复？')===true){
+       return true;
+    }else{
+        return false;
+    }
+}
+
+function video_del_check() {
+    if (confirm('确定要删除音频，音频删除后不能恢复？')===true){
+        return true;
+    }else{
+        return false;
+    }
+}
