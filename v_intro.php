@@ -75,7 +75,7 @@ include "conn/conn.php";
                                                 <?php
                                                 if(isset($_SESSION['name'])){
                                                     ?>
-                                                    <input name="Submit" type="button" value="播放" onclick="javascript:Wopen=open('operation.php?action=listen&id=<?php echo $rst->fields['id']; ?>','','height=300,width=665,scrollbars=no');">
+                                                    <input name="Submit" type="button" value="播放" onclick="javascript:Wopen=open('listen.php?id=<?php echo $rst->fields['id']; ?>','','height=70,width=665,scrollbars=no');">
                                                     <?php
                                                 }if(isset($_SESSION['name'])){
                                                     ?>

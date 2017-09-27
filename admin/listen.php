@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -14,34 +13,6 @@
             margin-right: auto;
             margin-bottom: 50px;
         }
-        h1 {
-            font-size: 54px;
-            color: #333;
-            margin: 30px 0 10px;
-        }
-        h2 {
-            font-size: 22px;
-            color: #555;
-        }
-        h3 {
-            font-size: 24px;
-            color: #555;
-        }
-        hr {
-            display: block;
-            width: 7rem;
-            height: 1px;
-            margin: 2.5rem 0;
-            background-color: #eee;
-            border: 0;
-        }
-        a {
-            color: #08c;
-            text-decoration: none;
-        }
-        p {
-            font-size: 18px;
-        }
     </style>
 </head>
 <body>
@@ -52,8 +23,16 @@ $id = htmlspecialchars($_GET['id']);
 $sql = "select name,picture,actor,address from tb_video WHERE id=$id";
 
 $data = $conn->execute($sql);
-/* echo "<pre>";
- print_r($data);*/
+if(!$data->EOF){
+    $name = $data->fields['name'];
+    $actor =$data->fields['actor'];
+    $address = "../".$data->fields['address'];
+    $pic = "../".$data->fields['picture'];
+}else{
+    echo "<script type='text/javascript'>top.window.close();alert('非法操作！');</script>";
+//    exit();
+}
+
 ?>
 
 <div class="container">
@@ -65,16 +44,14 @@ $data = $conn->execute($sql);
         element: document.getElementById('player3'),
         narrow: false,
         autoplay: false,
-        showlrc: 3,
         mutex: true,
-        theme: '#e6d0b2',
+        theme: '#615754',
         mode: 'circulation',
         music: {
-            title: '<?php echo $data->fields['name']; ?>',
-            author: '<?php echo $data->fields['actor']; ?>',
-            url: '<?php echo "../".$data->fields['address']; ?>',
-            pic: '<?php echo "../".$data->fields['picture']; ?>',
-            lrc: "回レ！雪月花.lrc"
+            title: '<?php echo $name; ?>',
+            author: '<?php echo $actor; ?>',
+            url: '<?php echo $address; ?>',
+            pic: '<?php echo  $pic; ?>',
         }
     });
 </script>

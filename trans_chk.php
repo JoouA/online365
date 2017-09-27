@@ -125,7 +125,7 @@ if($_POST['action'] == "a"){
     $marker = get_data(@$_POST['marker']);
     $a_sqlstr = "insert into tb_audio (name,picture,sizes,grade,publisher,actor,director,marker,languages,type,style,froms,publishtime,bool,remark
     ,property,address,username,issueDate)values('$names','$picture_path','$sizes','$grade','$publisher','$actor','$director','$marker','$language'
-    ,'$type','$style','$from','$publishtime','$news','$remark','用户','$file_path','$name','$issueDate')";
+    ,'Audio','$style','$from','$publishtime','$news','$remark','用户','$file_path','$name','$issueDate')";
 }
 elseif($_POST['action'] == "v"){
     //video audio
@@ -133,7 +133,7 @@ elseif($_POST['action'] == "v"){
     $ci = get_data($_POST['ci']);
     $qu =  get_data($_POST['qu']);
     $a_sqlstr = "insert into tb_video (name,picture,actor,ci,qu,actortype,type,style,publisher,froms,sizes,languages,publishTime,remark,property
-    ,address,userName,issueDate) values('$names','$picture_path','$actor','$ci','$qu','$actortype','$type','$style','$publisher','$froms','$sizes'
+    ,address,userName,issueDate) values('$names','$picture_path','$actor','$ci','$qu','$actortype','Video','$style','$publisher','$froms','$sizes'
     ,'$language','$publishtime','$remark','用户','$file_path','$name','$issueDate')";
 }
 else

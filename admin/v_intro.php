@@ -72,9 +72,9 @@ require_once "conn/conn.php";
                                         </tr>
                                         <tr>
                                             <td height="30" colspan="2" align="center" valign="middle">
-                                                <input name="Submit" type="button" value="  播  放  " onClick="javascript:Wopen=open('operation.php?action=listen&id=<?php echo $rst->fields['id']; ?>','','height=700,width=665,scrollbars=no');">
+                                                <input name="Submit" type="button" value="  播  放  " onClick="javascript:Wopen=open('listen.php?id=<?php echo $rst->fields['id']; ?>','','height=60,width=665,scrollbars=no');">
                                                 <input name="Submit" type="button" value="  下  载  "  onClick="javascript:Wopen=location='download.php?action=video&id=<?php echo $rst->fields['id']; ?>';">
-                                                <input name="Submit2" type="button" value="  返  回  " class="submit" onClick="javascript:top.window.close();"></td>
+                                                <input name="Submit2" type="button" value="  返  回  " class="submit" onclick="javascript:top.window.close();"></td>
                                         </tr>
                                         </table>
                                     <?php } ?>

@@ -51,10 +51,10 @@ $action = htmlspecialchars(trim($_GET['action']));
             require_once "v_intro.php";
             break;
         case "see":
-             include "see.php";
+            include "see.php";
             break;
         case "listen":
-            require_once "listen.php";
+            include "listen.php";
             break;
     }
     ?>
