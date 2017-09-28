@@ -23,10 +23,7 @@ include "conn/conn.php";
                             <?php
                             $a_sql="select * from tb_grade";
                             $a_rst = $conn->execute($a_sql);
-                           /* echo "<pre>";
-                            print_r($a_rst->fields);
-                            die();*/
-                            While(!$a_rst->EOF){
+                            while(!$a_rst->EOF){
                                 ?>
                                 <tr>
                                     <td height="20" align="center" valign="middle"><?php echo $a_rst->fields['id']; ?></td>

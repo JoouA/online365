@@ -236,3 +236,39 @@ function video_del_check() {
         return false;
     }
 }
+
+function account_del_check() {
+    if (confirm('确定要删除用户，用户删除后不能恢复？')===true){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function manager_add_check(){
+    if (document.list.names.value == ""){
+        alert('管理员名称不能为空！');
+        return false;
+    }
+
+    if (document.list.password.value == ""){
+        alert('管理员密码不能为空！');
+        return false;
+    }
+
+    if (document.list.password2.value == ""){
+        alert('管理员确认密码不能为空！');
+        return false;
+    }
+
+    if (document.list.password.value !=  document.list.password2.value){
+        alert('两次输入的密码不一致！');
+        return false;
+    }
+
+    if (document.list.realname.value == ""){
+        alert('真实姓名不能为空！');
+        return false;
+    }
+
+}

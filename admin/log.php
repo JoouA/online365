@@ -2,28 +2,7 @@
 include "inc/chec.php";
 include "conn/conn.php";
 $page =  htmlspecialchars(trim($_GET['page']));
-$num_sql1 = "select  count(*) as totalPage1 from tb_audio";
-$num_sql2 = "select count(*) as totalPage2 from tb_video";
-$data1 = $conn->execute($num_sql1);
-$data2 = $conn->execute($num_sql2);
-$numberTotal = $data1->fields['totalPage1'] + $data2->fields['totalPage2'];
-$pageSize = 5;
-// get the page of the table
-$totalPage = ceil($numberTotal/$pageSize);
-if ($page <= 0){
-    $page = 1;
-}
-if ($page >= $totalPage){
-    $page = $totalPage;
-}
-$offset = ($page - 1)*$pageSize;
-$pre =  ($page == 1)? "上一页" : "<a href='main.php?action=log&page=".($page - 1)."'>上一页</a>";
-$next = ($page == $totalPage)? "下一页" : "<a href='main.php?action=log&page=".($page + 1)."'>下一页</a>";
-$str = '';
-for ($i = 1; $i <= $totalPage;$i++){
-    $str .= "&nbsp;&nbsp;&nbsp;"."<a href='main.php?action=log&page=$i'>[$i]</a>";
-}
-$str .= "&nbsp;&nbsp;&nbsp;";
+$pageSize = 2;
 ?>
 <table width="380" height="440" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
@@ -52,20 +31,50 @@ $str .= "&nbsp;&nbsp;&nbsp;";
                                 case "all":
                                     $q_date = $years."-".$months."-".$_GET['days'];
                                     $l_sqlstr="select id,name,userName,issueDate,type  from tb_audio where property='用户' and issueDate like '%".$q_date."%' Union select id,name,userName,issueDate,type from tb_video where property='用户' and issueDate like '%".$q_date."%'";
+                                    $ahref = "main.php?action=log&types=all&days=".$_GET['days']."&page=";
                                     break;
                                 case "audio":
                                     $q_date = $years."-".$months."-".$_GET['days'];
                                     $l_sqlstr="select id,name,userName,issueDate,type,address from tb_audio where property='用户' and issueDate like '%".$q_date."%'";
+                                    $ahref = "main.php?action=log&types=audio&days=".$_GET['days']."&page=";
                                     break;
                                 case "video":
                                     $q_date = $years."-".$months."-".$_GET['days'];
                                     $l_sqlstr="select id,name,userName,issueDate,type,address from tb_video where property='用户' and issueDate like '%".$q_date."%'";
+                                    $ahref = "main.php?action=log&types=video&days=".$_GET['days']."&page=";
                                     break;
                                 default:
-                                    $l_sqlstr="select id,name,userName,issueDate,type,address from tb_audio where property='用户' Union select id,name,userName,issueDate,type,address from tb_video where property='用户' limit $offset,$pageSize";
+                                    $l_sqlstr="select id,name,userName,issueDate,type,address from tb_audio where property='用户' Union select id,name,userName,issueDate,type,address from tb_video where property='用户'";
+                                    $ahref = "main.php?action=log&page=";
                                     break;
                             }
-                            $l_rst = $conn->execute($l_sqlstr);
+
+                            // 数据的条数
+                            $numberTotal = $conn->execute($l_sqlstr)->_numOfRows;
+                            // 分多少页
+                            $totalPage = ceil($numberTotal/$pageSize);
+
+                            if (!$conn->execute($l_sqlstr)->EOF){
+                                if ($page <= 0){
+                                    $page = 1;
+                                }
+                                if ($page >= $totalPage){
+                                    $page = $totalPage;
+                                }
+                                $offset = ($page - 1)*$pageSize;
+                                $pre =  ($page == 1)? "上一页" : "<a href='$ahref".($page - 1)."'>上一页</a>";
+                                $next = ($page == $totalPage)? "下一页" : "<a href='$ahref".($page + 1)."'>下一页</a>";
+                                $str = '';
+                                for ($i = 1; $i <= $totalPage;$i++){
+                                    $str .= "&nbsp;&nbsp;&nbsp;"."<a href='{$ahref}{$i}'>[$i]</a>";
+                                }
+                                $str .= "&nbsp;&nbsp;&nbsp;";
+
+                                $l_sqlstr = $l_sqlstr." limit $offset,$pageSize";
+                                $l_rst = $conn->execute($l_sqlstr);
+                            }else{
+                                $l_rst = $conn->execute($l_sqlstr);
+                            }
                             while(!$l_rst->EOF){
                                 ?>
                                 <tr>
@@ -80,7 +89,9 @@ $str .= "&nbsp;&nbsp;&nbsp;";
                                     </form>
                                 </tr>
                                 <?php
-                                $l_rst->movenext();
+                                if (!$l_rst->EOF){
+                                    $l_rst->movenext();
+                                }
                             }
                             ?>
                         </table>
@@ -89,7 +100,7 @@ $str .= "&nbsp;&nbsp;&nbsp;";
                 <tr align="center">
                     <td>
                         <?php
-                        if ($totalPage>1){
+                        if ($numberTotal > $pageSize ){
                             echo $pre.'&nbsp;'.$str.'&nbsp;'.$next;
                         }else{
                             echo "";

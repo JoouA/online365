@@ -13,7 +13,7 @@ include "inc/chec.php";
                     <td colspan="4">
                         <table width="375" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
-                                <td height="10" colspan="5" align="right" valign="middle"><a href="#" onClick="javacript:Wopen=open('operation.php?action=v_found','参数更新','height=500,width=665,scrollbars=no');">会员信息查询</a></td>
+                                <td height="10" colspan="5" align="right" valign="middle"><a href="#" onclick="javacript:Wopen=open('operation.php?action=v_found','参数更新','height=500,width=665,scrollbars=no');">会员信息查询</a></td>
                             </tr>
                             <tr>
                                 <td width="40" height="30" align="center" valign="middle">ID</td>
@@ -67,7 +67,7 @@ include "inc/chec.php";
                                             <input type="hidden" name="id" value="<?php echo $v_rst->fields['id']; ?>">
                                             <input type="hidden" name="whether" value="<?php echo $v_rst->fields['whether']; ?>">
                                             <input type="submit" name="Submit2" class="submit" value="<?php echo $fd; ?>">
-                                            <a href="del_freeze_chk.php?id=<?php echo $v_rst->fields['id']; ?>" onClick="return del_chk();">删除</a>
+                                            <a href="del_freeze_chk.php?id=<?php echo $v_rst->fields['id']; ?>" onclick="return account_del_check();">删除</a>
                                         </td>
                                     </form>
                                 </tr>
