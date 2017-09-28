@@ -1,6 +1,7 @@
 <?php
 include "conn/conn.php";
 include "inc/chec.php";
+include "inc/chec_vip_data.php";
 ?>
 <table width="380" height="440" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>

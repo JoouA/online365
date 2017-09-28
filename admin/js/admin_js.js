@@ -270,5 +270,12 @@ function manager_add_check(){
         alert('真实姓名不能为空！');
         return false;
     }
+}
 
+function manager_del_chk(){
+    if (confirm('确定要删除管理员用户，用户删除后不能恢复？')===true){
+        return true;
+    }else{
+        return false;
+    }
 }

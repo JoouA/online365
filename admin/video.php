@@ -1,6 +1,7 @@
 <?php
 include "conn/conn.php";
 include "inc/chec.php";
+require_once "inc/chec_video.php";
 
 $page =  htmlspecialchars(trim($_GET['page']));
 $num_sql = "select count(*) as totalPage from tb_video";

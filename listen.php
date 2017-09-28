@@ -46,7 +46,9 @@
 </head>
 <body>
 <?php
+    session_start();
     include_once "conn/conn.php";
+    require_once "inc/chec.php";
     $id = htmlspecialchars($_GET['id']);
 
     $sql = "select name,picture,actor,address from tb_video WHERE id=$id";

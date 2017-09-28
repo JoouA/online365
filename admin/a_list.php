@@ -1,6 +1,7 @@
 <?php
 include "inc/chec.php";
 include "conn/conn.php";
+require_once "inc/chec_audio_list.php";
 
 $page =  htmlspecialchars(trim($_GET['page']));
 $num_sql = "select count(*) as totalPage from tb_audiolist";

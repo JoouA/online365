@@ -1,61 +1,35 @@
-<!DOCTYPE html>
+<?php
+require_once "inc/chec.php";
+require_once "conn/conn.php";
+$id = htmlspecialchars(trim($_GET['id']));
+$sql = "select  picture,address from tb_audio WHERE id=$id";
+$a_data = $conn->execute($sql);
+if (!$a_data->EOF){
+    $address = $a_data->fields['address'];
+    $ext = substr(strrchr($address,'.'),1);
+    $picture = $a_data->fields['picture'];
+}else{
+    echo "<script type='text/javascript'>alert('非法操作！');top.window.close();</script>";
+    exit();
+}
+
+?>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style>
-        body {
-            background: #ddd;
-        }
-        video {
-            max-width: 100%;
-            height: auto;
-        }
-
-        iframe,
-        embed,
-        object {
-            max-width: 100%;
-        }
-
-        .container {
-            width: 600px;
-            padding: 5%;
-            margin:0px auto;
-            background:#fff;
-            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .vendor {
-            padding: 2%;
-            background: #d1eed1;
-            margin-bottom: 2em;
-        }
-
-        .unsupported {
-            background: #fddfde;
-        }
-    </style>
+    <link href="//vjs.zencdn.net/5.19/video-js.min.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/5.19/video.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <div align="center">
-        <?php
-            include_once "conn/conn.php";
-            $id = $_GET['id'];
-            $videoSql = 'select address from tb_audio WHERE id='.$id;
-            $data = $conn->execute($videoSql);
-            $address =  $data->fields['address'];
-            echo "<iframe width='425' height='349' src='$address' frameborder='0' allowfullscreen></iframe>";
-        ?>
-    </div>
-</div>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js" type="text/javascript"></script>
-<script src="js/jquery.fitvids.js" type="text/javascript"></script>
-<script>
-    // Basic FitVids Test
-    $(".container").fitVids();
-    // Custom selector and No-Double-Wrapping Prevention Test
-    $(".container").fitVids({ customSelector: "iframe[src^='http://socialcam.com']"});
-</script>
+<video
+    id="my-player"
+    class="video-js"
+    controls
+    preload="auto"
+    poster="<?php echo $picture; ?>"
+    data-setup='{}'
+    width="665"
+>
+    <source src="<?php echo $address; ?>" type="video/<?php echo $ext; ?>"></source>
+</video>
 </body>
 </html>

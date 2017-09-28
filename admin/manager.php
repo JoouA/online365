@@ -46,7 +46,7 @@ include "conn/conn.php";
                                             <input type="hidden" name="id" value="<?php echo $m_rst->fields['id']; ?>">
                                             <input type="hidden" name="whether" value="<?php echo $m_rst->fields['whether']; ?>">
                                             <input type="submit" name="Submit2" class="submit" value="<?php echo $bt; ?>">
-                                            <a href="del_mfreeze_chk.php?id=<?php echo $m_rst->fields['id']; ?>" onClick="return del_chk();">删除</a>
+                                            <a href="del_mfreeze_chk.php?id=<?php echo $m_rst->fields['id']; ?>" onclick="return manager_del_chk();">删除</a>
                                         </td>
                                     </form>
                                 </tr>

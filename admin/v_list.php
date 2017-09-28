@@ -1,11 +1,12 @@
 <?php
 include "inc/chec.php";
 include "conn/conn.php";
+require_once "inc/chec_video_list.php";
 
 $page =  htmlspecialchars(trim($_GET['page']));
 $num_sql = "select count(*) as totalPage from tb_videolist";
 $num_rst =  $conn->execute($num_sql);
-$pageSize = 5;
+$pageSize = 2;
 // get the page of the table
 $totalPage = ceil($num_rst->fields['totalPage']/$pageSize);
 if ($page <= 0){

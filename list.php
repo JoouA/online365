@@ -107,10 +107,18 @@ include "conn/conn.php";
 
                             <td align="center" valign="middle">
                                 <?php
-                                if(isset($_SESSION['name'])){?>
-                                    <a href="#" onclick="javascript:Wopen=open('operation.php?action=<?php echo (($_GET['action'] == "audio")?"see":"listen");?>&id=<?php echo $l_rst->fields['id']; ?>','','height=700,width=665,scrollbars=no');">
+                                if(isset($_SESSION['name'])){
+                                    if($_GET['action'] == 'audio'){
+                                    ?>
+                                    <a href="#" onclick="javascript:Wopen=open('operation.php?action=see&id=<?php echo $l_rst->fields['id']; ?>','','height=700,width=665,scrollbars=no');">
                                         <img src="images/online_icon.jpg" width="21" height="20" border="0" alt="在线播放"></a>
-                                    <?php
+                                        <?php }elseif($_GET['action'] == 'video') { ?>
+                                        <a href="#"
+                                           onclick="javascript:Wopen=open('listen.php?id=<?php echo $l_rst->fields['id']; ?>','','height=80,width=665,scrollbars=no');">
+                                            <img src="images/online_icon.jpg" width="21" height="20" border="0"
+                                                 alt="在线播放"></a>
+                                        <?php
+                                    }
                                 }
                                 ?>
                             </td>

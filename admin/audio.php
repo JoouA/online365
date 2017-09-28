@@ -1,7 +1,7 @@
 <?php
 include_once "conn/conn.php";
 include_once "inc/chec.php";
-
+require_once "inc/chec_audio.php";
 //分页
 $page =  htmlspecialchars(trim($_GET['page']));
 $num_sql = "select count(*) as totalPage from tb_audio";
