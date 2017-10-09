@@ -109,7 +109,7 @@
             <table width="295px" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td height="30px" colspan="2" background="images/music_show.jpg">
-                        <div align="right"><a href="" style="font-family:'宋体'; color:#FFFFFF;">>>>更多</a></div>
+                        <div align="right"><a href="list.php?action=video" style="font-family:'宋体'; color:#FFFFFF;">>>>更多</a></div>
                     </td>
                 </tr>
                 <?php
